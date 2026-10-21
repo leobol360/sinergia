@@ -22,9 +22,9 @@ function EndScreen({ status, winReason, onRestart }) {
         </>
       ) : (
         <>
-          <h2 className="end-card__title">¡Te quedaste sin energÍA! 😢</h2>
+          <h2 className="end-card__title">¡Te quedaste sin energÍA! 💔</h2>
           <p className="end-card__message">
-            Fallaste la pregunta y tu SinergÍA con el robot se desconectó.
+            Respuesta incorrecta, tu SinergÍA con el robot se desconectó.
           </p>
         </>
       )}
