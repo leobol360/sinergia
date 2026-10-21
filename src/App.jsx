@@ -97,7 +97,7 @@ function App() {
           </div>
 
           <div className="app__status" role="status" aria-live="polite">
-            <span className="app__status-label">Batería</span>
+            <span className="app__status-label">BaterIA</span>
             <span className="battery" aria-hidden="true">
               <span className="battery__cells">
                 {Array.from({ length: MAX_MISTAKES }, (_, i) => (
