@@ -3,6 +3,8 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/sinergia/',
+  // Relative base so the same build works both under GitHub Pages'
+  // /sinergia/ subpath and at the root of a Netlify domain.
+  base: './',
   plugins: [react()],
 })
