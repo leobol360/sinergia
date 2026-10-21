@@ -78,7 +78,7 @@ function App() {
           <img src={robotImg} alt="Robot" className="app__title-emoji" />
         </h1>
         <p className="app__subtitle">
-          Busca tu robot y activa la SinergIA...
+          Busca los robots y activa la SinergIA...
         </p>
         <div className="app__badges">
           <div className="app__status" role="status" aria-live="polite">
@@ -91,7 +91,7 @@ function App() {
                 />
               ))}
             </span>
-            <span className="app__status-count">
+            <span className="sr-only">
               {foundRobots}/{ROBOT_COUNT}
             </span>
           </div>
@@ -109,7 +109,7 @@ function App() {
               </span>
               <span className="battery__nub" />
             </span>
-            <span className="app__status-count">
+            <span className="sr-only">
               {MAX_MISTAKES - wrongAnswers}/{MAX_MISTAKES}
             </span>
           </div>

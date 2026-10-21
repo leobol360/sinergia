@@ -14,7 +14,7 @@ function EndScreen({ status, maxMistakes, onRestart }) {
         <>
           <h2 className="end-card__title">¡Activaste tu SinergÍA! 🎉</h2>
           <p className="end-card__message">
-            Encontraste a los 3 robots: tu SinergÍA con la IA está al máximo.
+            Encontraste los 3 robots: tu SinergÍA con la IA está al máximo.
           </p>
           <p className="end-card__prize">🏆 ¡Ganaste! Ya puedes reclamar tu premio 🎁</p>
         </>
