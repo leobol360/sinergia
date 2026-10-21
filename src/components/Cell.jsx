@@ -1,8 +1,9 @@
 import robotImg from '../assets/robot.png'
 
-function Cell({ cell, isRevealed, isMissedRobot, isDisabled, onClick }) {
+function Cell({ cell, isRevealed, isMissedRobot, isCorrect, isDisabled, onClick }) {
   const showRobot = isRevealed && cell.type === 'robot'
   const showQuestionMark = isRevealed && cell.type === 'question'
+  const questionState = showQuestionMark ? (isCorrect ? 'correct' : 'wrong') : null
 
   const label = !isRevealed
     ? 'Casilla oculta'
@@ -10,12 +11,14 @@ function Cell({ cell, isRevealed, isMissedRobot, isDisabled, onClick }) {
       ? isMissedRobot
         ? 'Aquí había un robot (no encontrado)'
         : 'Robot encontrado'
-      : 'Casilla de pregunta'
+      : questionState === 'correct'
+        ? 'Respuesta correcta'
+        : 'Respuesta incorrecta'
 
   return (
     <button
       type="button"
-      className={`cell${isRevealed ? ' cell--revealed' : ''}${showRobot ? ' cell--robot' : ''}${isMissedRobot ? ' cell--robot-missed' : ''}`}
+      className={`cell${isRevealed ? ' cell--revealed' : ''}${showRobot ? ' cell--robot' : ''}${isMissedRobot ? ' cell--robot-missed' : ''}${questionState === 'wrong' ? ' cell--wrong' : ''}${questionState === 'correct' ? ' cell--correct' : ''}`}
       onClick={onClick}
       disabled={isDisabled}
       aria-label={label}
@@ -23,7 +26,8 @@ function Cell({ cell, isRevealed, isMissedRobot, isDisabled, onClick }) {
       <span className="cell__face">
         {!isRevealed && <span className="cell__mark">?</span>}
         {showRobot && <img src={robotImg} alt="" className="cell__robot-img" />}
-        {showQuestionMark && <span className="cell__mark cell__mark--faded">?</span>}
+        {questionState === 'correct' && <span className="cell__mark cell__mark--correct">✓</span>}
+        {questionState === 'wrong' && <span className="cell__mark cell__mark--wrong">✕</span>}
       </span>
     </button>
   )

@@ -1,11 +1,7 @@
 import robotImg from '../assets/robot.png'
 
-function EndScreen({ status, winReason, onRestart }) {
+function EndScreen({ status, maxMistakes, onRestart }) {
   const isWin = status === 'won'
-  const winMessage =
-    winReason === 'question'
-      ? 'Respondiste correctamente y activaste tu SinergÍA con la IA.'
-      : 'Encontraste a los 3 robots: tu SinergÍA con la IA está al máximo.'
 
   return (
     <div className={`end-card${isWin ? ' end-card--win' : ' end-card--lose'}`}>
@@ -17,14 +13,17 @@ function EndScreen({ status, winReason, onRestart }) {
       {isWin ? (
         <>
           <h2 className="end-card__title">¡Activaste tu SinergÍA! 🎉</h2>
-          <p className="end-card__message">{winMessage}</p>
+          <p className="end-card__message">
+            Encontraste a los 3 robots: tu SinergÍA con la IA está al máximo.
+          </p>
           <p className="end-card__prize">🏆 ¡Ganaste! Ya puedes reclamar tu premio 🎁</p>
         </>
       ) : (
         <>
           <h2 className="end-card__title">¡Te quedaste sin energÍA! 💔</h2>
           <p className="end-card__message">
-            Respuesta incorrecta, tu SinergÍA con el robot se desconectó.
+            Agotaste la batería del robot tras {maxMistakes} respuestas incorrectas: tu SinergÍA
+            se desconectó.
           </p>
         </>
       )}
