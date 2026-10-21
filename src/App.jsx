@@ -108,7 +108,7 @@ function App() {
 
       {status === 'won' && <Confetti />}
 
-      <footer className="app__footer">Creado con Claude Code</footer>
+      <footer className="app__footer">Built with Claude Code</footer>
     </div>
   )
 }
